@@ -1,0 +1,61 @@
+repositories {
+    maven {
+        url uri('mint-plugin-repo-5.2.2')
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.splunk.mint.gradle.android.plugin'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "me.ji5.test.splunk.mint"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Use this option when your app targets a version of the Android SDK that is less than 21:
+        multiDexEnabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url uri('mint-plugin-repo-5.2.2')
+        }
+        // Will need to add jcenter repo OR mavenCentral
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.splunk:mint-gradle-android-plugin:5.2.2'
+    }
+}
+
+repositories {
+    maven {
+        url uri('mint-plugin-repo-5.2.2')
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    compile 'com.splunk:mint-android-sdk:5.2.2'
+}
