@@ -1,11 +1,4 @@
-repositories {
-    maven {
-        url uri('mint-plugin-repo-5.2.2')
-    }
-}
-
 apply plugin: 'com.android.application'
-apply plugin: 'com.splunk.mint.gradle.android.plugin'
 
 android {
     compileSdkVersion 26
