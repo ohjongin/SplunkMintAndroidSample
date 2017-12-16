@@ -13,9 +13,20 @@ android {
         // Use this option when your app targets a version of the Android SDK that is less than 21:
         multiDexEnabled = true
     }
+
     buildTypes {
-        release {
+        debug {
+            resValue "string", "splunk_mint_api_key", SPLUNK_MINT_API_KEY
+            resValue "string", "splunk_mint_hc_token", SPLUNK_MINT_HC_TOKEN
+
             minifyEnabled false
+        }
+
+        release {
+            resValue "string", "splunk_mint_api_key", SPLUNK_MINT_API_KEY
+            resValue "string", "splunk_mint_hc_token", SPLUNK_MINT_HC_TOKEN
+
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
